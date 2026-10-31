@@ -3,8 +3,7 @@
 Study notes for the Buddhism Diploma exams.
 
 - **[Home](https://chujieying.github.io/buddhism-diploma/)**: what the site is for, the five papers at a glance, how to study with it, and a friendly warning about spiritual materialism.
-- **[Pali Charts](https://chujieying.github.io/buddhism-diploma/pali.html)**: all Pali charts on one page (alphabet, declensions, conjugations, pūjā and vandanā) with a tap-to-reveal quiz mode.
-- **[Pali Coach](https://chujieying.github.io/buddhism-diploma/coach.html)**: simple lessons, memory tricks, flashcards and practice tests.
+- **[Pāli](https://chujieying.github.io/buddhism-diploma/pali.html)**: everything for the Pāli paper on one page: simple lessons with memory tricks, every chart (alphabet, declensions, conjugations, pūjā and vandanā) with a tap-to-reveal quiz mode, flashcards and practice tests.
 - **[Early Buddhism](https://chujieying.github.io/buddhism-diploma/eb.html)**: Early Buddhism (Basic Doctrines) coach. A big-picture map built on the Four Noble Truths, a lesson per exam topic (including dependent origination, asked every year) with simple explanations and memory tricks, flashcards, a quiz and a timed essay drill with 40 questions from the 2020–2024 papers.
 - **[Geo Expansion](https://chujieying.github.io/buddhism-diploma/geo.html)**: Geographical Expansion of Buddhism, one lesson per exam question with explain-like-I'm-5 boxes, mnemonics, a map, answer outlines, flashcards, a quiz and a timed essay drill using past-year questions.
 - **[Overlaps](https://chujieying.github.io/buddhism-diploma/overlaps.html)**: a slide deck for the six topics that appear in more than one paper (five precepts, ten deeds and kamma, Four Noble Truths and the Path, five aggregates, the Second Council split, mindfulness). Mind maps and memory tricks first, then a full model answer for each with what to add for each paper.

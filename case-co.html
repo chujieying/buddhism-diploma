@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Counselling Case Studies</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: one reading column. The exam question, the two-part framework as a cheat sheet, the answer template, a cue-spotting table, notes on the class sample (Mr. A), then three practice vignettes, each with a model answer you open when you're ready */
+:root{
+  --bg:#f3f5f4; --surface:#ffffff; --ink:#1d2a2e; --muted:#5b6b70; --rule:#d5dedc;
+  --robe:#b8640f; --robe-soft:#f8ead8; --teal:#1f5c63; --teal-soft:#e2eeee;
+  --co:#7a4f9a; --co-soft:#eee6f4;
+  --pali:"Gentium Book Plus","Noto Serif",Georgia,serif;
+  --ui:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#121a1c; --surface:#192427; --ink:#e3ebe9; --muted:#9aaba9; --rule:#2e3d40;
+  --robe:#eea04f; --robe-soft:#352717; --teal:#7cc3c9; --teal-soft:#1c3336;
+  --co:#c4a2e0; --co-soft:#2b2236; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121a1c; --surface:#192427; --ink:#e3ebe9; --muted:#9aaba9; --rule:#2e3d40;
+  --robe:#eea04f; --robe-soft:#352717; --teal:#7cc3c9; --teal-soft:#1c3336;
+  --co:#c4a2e0; --co-soft:#2b2236; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--ui);font-size:16px;line-height:1.65;padding-inline:16px;padding-block:0 72px;margin:0}
+.wrap{max-width:820px;margin:0 auto}
+header.hero{padding-block:32px 8px}
+.eyebrow{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--co);font-weight:600}
+h1{font-family:var(--pali);font-size:clamp(32px,6.5vw,46px);line-height:1.08;margin:6px 0 10px;text-wrap:balance}
+h2{font-family:var(--pali);font-size:clamp(24px,4.6vw,30px);line-height:1.2;margin:44px 0 8px;text-wrap:balance;scroll-margin-top:16px}
+h3{font-size:17px;margin:26px 0 6px}
+h4{font-size:15px;margin:18px 0 4px;color:var(--co)}
+p,li{max-width:68ch}
+.lede{color:var(--muted);margin:0 0 14px}
+.pali,i.p{font-family:var(--pali);font-style:italic}
+a{color:var(--teal)}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--robe);outline-offset:2px}
+
+.toc{display:flex;flex-wrap:wrap;gap:6px;margin:14px 0 4px;padding:0;list-style:none}
+.toc a{display:inline-block;font-size:13px;font-weight:600;text-decoration:none;padding:5px 12px;border-radius:999px;border:1px solid var(--rule);background:var(--surface)}
+.toc a:hover{border-color:var(--teal)}
+
+.stem{background:var(--co-soft);border-left:4px solid var(--co);border-radius:0 10px 10px 0;padding:14px 18px;margin:12px 0;font-family:var(--pali);font-size:19px;line-height:1.45}
+.note{background:var(--robe-soft);border-radius:10px;padding:12px 16px;margin:14px 0;font-size:15px}
+.note b{color:var(--robe)}
+.trick{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;align-items:baseline;background:var(--surface);border:1px solid var(--rule);border-radius:12px;padding:14px 18px;margin:14px 0}
+.trick .big{font-family:var(--pali);font-size:28px;font-weight:700;color:var(--co);letter-spacing:.04em}
+.trick p{margin:0}
+
+.tbl{overflow-x:auto;margin:10px 0 6px;border:1px solid var(--rule);border-radius:12px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:14.5px;line-height:1.5}
+th,td{text-align:left;vertical-align:top;padding:9px 12px;border-bottom:1px solid var(--rule)}
+tr:last-child td{border-bottom:0}
+thead th{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600;background:var(--bg)}
+td:first-child{font-weight:600;white-space:nowrap}
+td.grp{font-family:var(--pali);font-size:17px;color:var(--co);font-weight:700}
+.src{color:var(--muted);font-size:13px}
+@media (max-width:560px){td:first-child{white-space:normal}}
+
+ol.tmpl{padding-left:22px}
+ol.tmpl li{margin-bottom:8px}
+ol.tmpl b{color:var(--co)}
+
+.case{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:6px 20px 16px;margin:18px 0}
+.case h3{font-family:var(--pali);font-size:22px;margin:16px 0 4px}
+.case .meta{font-size:13px;color:var(--muted);margin:0 0 10px}
+.vignette{border-left:3px solid var(--rule);padding-left:14px;margin:10px 0}
+.vignette p{margin:0 0 10px}
+details{border-top:1px solid var(--rule);margin-top:10px}
+summary{cursor:pointer;font-weight:600;color:var(--teal);padding:12px 0;list-style:none}
+summary::-webkit-details-marker{display:none}
+summary::before{content:"+";display:inline-block;width:1.2em;font-weight:700}
+details[open]>summary::before{content:"−"}
+.ans h4:first-child{margin-top:4px}
+.ans p{margin:0 0 10px}
+.ext{background:var(--teal-soft);border-radius:10px;padding:12px 16px;margin:14px 0 4px;font-size:15px}
+.ext b{color:var(--teal)}
+.tools{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+.tools button{font:inherit;font-size:14px;font-weight:600;cursor:pointer;border-radius:8px;padding:8px 14px;border:1px solid var(--rule);background:var(--surface);color:var(--ink)}
+.tools button:hover{border-color:var(--teal)}
+
+footer{margin-top:48px;border-top:1px solid var(--rule);padding-top:14px;color:var(--muted);font-size:13.5px}
+footer li{margin-bottom:4px}
+</style>
+<style>
+.site{margin-inline:-16px;padding:10px 16px;background:var(--surface);border-bottom:1px solid var(--rule);display:flex;align-items:center;gap:6px 14px;flex-wrap:wrap}
+.site .brand{font-family:var(--pali);font-weight:700;font-size:18px;color:var(--ink);text-decoration:none;margin-right:auto}
+.site .links{display:flex;gap:4px;flex-wrap:wrap}
+.site .links a{font-family:var(--ui);font-size:14px;font-weight:600;color:var(--muted);text-decoration:none;padding:7px 10px;border-radius:8px;border:1px solid transparent}
+.site .links a:hover{color:var(--teal);border-color:var(--rule)}
+.site .links a[aria-current="page"]{color:var(--teal);background:var(--bg);border-color:var(--rule)}
+.sub{margin-inline:-16px;padding:8px 16px;border-bottom:1px solid var(--rule);display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-family:var(--ui);font-size:13px}
+.sub .in{color:var(--muted);margin-right:4px}
+.sub a{font-weight:600;color:var(--teal);text-decoration:none;padding:5px 12px;border-radius:999px;border:1px solid var(--rule);background:var(--surface)}
+.sub a:hover{border-color:var(--teal)}
+.sub a[aria-current="page"]{background:var(--teal);border-color:var(--teal);color:var(--bg)}
+</style>
+</head>
+<body>
+<nav class="site" aria-label="Papers">
+  <a class="brand" href="./">Diploma Exam Prep</a>
+  <span class="links"><a href="eb.html">Early Buddhism</a><a href="deck-sd.html">Social Dimensions</a><a href="geo.html">Geo Expansion</a><a href="pali.html">Pāli</a><a href="deck-co.html" aria-current="page">Counselling</a></span>
+</nav>
+<nav class="sub" aria-label="Counselling pages"><span class="in">Counselling:</span><a href="deck-co.html">Revision deck</a><a href="case-co.html" aria-current="page">Case studies</a></nav>
+
+<div class="wrap">
+<header class="hero">
+  <div class="eyebrow">Paper 05 · Psychology &amp; Counselling · Case study</div>
+  <h1>Case Study Practice</h1>
+  <p class="lede">The exam gives you a short story about a client and asks you to diagnose the suffering and its causes. This page gives you the two lists to use, the answer layout the class sample follows, and three new practice cases with full model answers built from Lessons 3, 4 and 10.</p>
+  <ul class="toc">
+    <li><a href="#question">The question</a></li>
+    <li><a href="#framework">Framework</a></li>
+    <li><a href="#template">Answer layout</a></li>
+    <li><a href="#cues">Spotting cues</a></li>
+    <li><a href="#mra">Mr. A tips</a></li>
+    <li><a href="#cases">Practice cases</a></li>
+  </ul>
+</header>
+
+<section id="question">
+  <h2>The question</h2>
+  <div class="stem">Identify the aspects of suffering and the underlying causes of suffering presented in the case vignette below.</div>
+  <p>There are two jobs: <b>diagnosis</b> (what the suffering is, the First Noble Truth) and <b>aetiology</b> (what causes it, the Second Noble Truth). Lesson 10 calls these the first two steps of the Buddhist case conceptualisation: <i>what is the problem?</i> and <i>how did it develop and why does it persist?</i></p>
+  <div class="note"><b>Marks go to labels plus evidence.</b> Name the lecture-note category (for example “secondary reaction: despair”), then quote or point to the exact line in the vignette that shows it. A category with no evidence, or evidence with no category, loses marks.</div>
+</section>
+
+<section id="framework">
+  <h2>The framework: two sets of three</h2>
+  <div class="trick"><span class="big">EFC · ICA</span><p><b>Event, Feeling, Clinging</b>: what happened, how it felt, what they hold on to.<br><b>Ignorance, Craving, Aversion</b>: they don't see clearly, so they pull toward the pleasant and push away the unpleasant.</p></div>
+
+  <h3>Part 1 · Aspects of suffering (Lesson 3, the Suffering Sheet)</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Aspect</th><th>Type</th><th>What it means · examples</th></tr></thead>
+    <tbody>
+      <tr><td class="grp" rowspan="2">Event</td><td>Existential<br><span class="src">(Lesson 10: embodied)</span></td><td>Unavoidable conditions of having a body: <b>birth, ageing, illness, death</b>.</td></tr>
+      <tr><td>Systemic<br><span class="src">(Lesson 10: relational)</span></td><td>Desire not matching reality: <b>union with what is displeasing, separation from what is pleasing, not getting what one wants</b>.</td></tr>
+      <tr><td class="grp" rowspan="2">Feeling</td><td>Primary reaction<br><span class="src">(raw)</span></td><td>The raw felt experience before any story: <b>physical pain</b> (bodily) and <b>mental pain / grief</b>.</td></tr>
+      <tr><td>Secondary reaction<br><span class="src">(elaborated)</span></td><td>The story added on top, the “second arrow” (<span class="pali">Salla Sutta</span>, SN 36.6): <b>sorrow</b> (inner heartache, “why me?”), <b>lamentation</b> (outward complaining), <b>despair</b> (chronic hopelessness).</td></tr>
+      <tr><td class="grp" rowspan="2">Clinging</td><td>Three forms</td><td><b>Possessiveness</b> “This is mine” · <b>Identification</b> “This I am” (“I am my job”) · <b>Ontological identification</b> “This is my self”.</td></tr>
+      <tr><td>Four kinds<br><span class="src">(MN 9)</span></td><td>Clinging to <b>sensual pleasures</b>, to <b>views</b> (rigid beliefs, self-stories, perfectionism), to <b>rules and observances</b> (checking rituals, workaholism), to a <b>doctrine of self</b> (extreme reactivity to criticism).</td></tr>
+    </tbody>
+  </table></div>
+  <p class="src">Unifying diagnosis: “in brief, the five aggregates subject to clinging are suffering” (SN 56.11; MN 141). Suffering is the clash between clinging, which wants things fixed and owned, and the aggregates, which keep changing.</p>
+
+  <h3>Part 2 · Causes of suffering (Lesson 4)</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Cause</th><th>Type</th><th>What it sounds like</th></tr></thead>
+    <tbody>
+      <tr><td class="grp" rowspan="3">Ignorance <span class="pali">avijjā</span></td><td>Three characteristics</td><td>View of <b>permanence</b> (“this will last”), of <b>happiness</b> (“this will make me complete”), of <b>self</b> (“this is just who I am”).</td></tr>
+      <tr><td>Wholesome / unwholesome</td><td>Not seeing craving, aversion or delusion as harmful: “My anger is completely justified.”</td></tr>
+      <tr><td>Four Noble Truths</td><td>View of <b>no cause</b> (“for no reason”), of <b>determinism</b> (“it will never change”), of <b>non-action</b> (“there's no point trying”).</td></tr>
+      <tr><td class="grp" rowspan="3">Craving <span class="pali">taṇhā</span></td><td>Sensual pleasures <span class="pali">kāma-taṇhā</span></td><td>“I want this.” Food, purchases, substances, likes, used to feel better.</td></tr>
+      <tr><td>Existence <span class="pali">bhava-taṇhā</span></td><td>“I want to be this.” Status, title, role, identity, legacy.</td></tr>
+      <tr><td>Non-existence <span class="pali">vibhava-taṇhā</span></td><td>“I want not to be this.” Numbing, blackout, wanting it all to switch off.</td></tr>
+      <tr><td class="grp" rowspan="3">Aversion <span class="pali">dosa</span></td><td>Sensual displeasure</td><td>“I don't want this.” Pushing away pain, noise, people, sensations.</td></tr>
+      <tr><td>Existence</td><td>“I don't want to be this.” Rejecting one's current self, job, body or life.</td></tr>
+      <tr><td>Non-existence</td><td>“I don't want this to end.” Fear of loss, endings, ageing, death.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="src">How they link (Lesson 4): ignorance is the <b>primary</b> cause and gives rise to craving and aversion; craving is the <b>proximate</b> cause; aversion is also the child of <b>frustrated craving</b>; craving and aversion reinforce each other and reinforce ignorance. Craving runs in three phases: launch into fantasy, the addictive fuel of delight and lust, the exhausting chase “here and there”.</p>
+</section>
+
+<section id="template">
+  <h2>Answer layout (follow the class sample)</h2>
+  <ol class="tmpl">
+    <li><b>Framework of analysis</b> (2–3 lines). Suffering = event, feeling, clinging. Causes = ignorance (misconception of reality), craving (desire for what seems pleasant), aversion (resistance to what seems unpleasant).</li>
+    <li><b>Summary of the case</b> (2–3 lines). Who, the trigger, the main symptoms, the key belief in their own words.</li>
+    <li><b>Analysing suffering</b>: 1 Event · 2 Feeling · 3 Clinging. Each: name the type, then the evidence.</li>
+    <li><b>Analysing causes</b>: 1 Ignorance · 2 Craving · 3 Aversion. Each: name the type, then show how the behaviour in the story comes from it.</li>
+    <li><b>Conclusion</b> (2–3 lines). Tie it together: the event, the layered reaction, the clinging, caused by ignorance of impermanence, suffering and non-self, plus craving and aversion.</li>
+  </ol>
+  <div class="note"><b>Time.</b> About 25–30 minutes: 3 minutes underlining cues in the vignette, 20 writing, 3 checking that every heading has a label and a quote. It also fits the recommended essay format: the framework and summary are your introduction, the six headings are the body, and the conclusion restates the thesis.</div>
+</section>
+
+<section id="cues">
+  <h2>Spotting cues in a vignette</h2>
+  <p>As you read, underline these kinds of lines and write the label in the margin.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>If the story says…</th><th>Label it</th></tr></thead>
+    <tbody>
+      <tr><td>retired, diagnosed, getting old, someone died</td><td>Existential event (ageing, illness, death)</td></tr>
+      <tr><td>criticised, rejected, lost a partner or job, missed a target</td><td>Systemic event (union with displeasing, separation from pleasing, not getting what one wants)</td></tr>
+      <tr><td>chest tight, heart racing, stomach sinking, aching, crying</td><td>Primary reaction: physical or mental pain</td></tr>
+      <tr><td>replays, ruminates, “why me?”, catastrophises</td><td>Secondary reaction: sorrow</td></tr>
+      <tr><td>complains to everyone, posts online, outbursts</td><td>Secondary reaction: lamentation</td></tr>
+      <tr><td>“nothing will change”, withdraws, gives up</td><td>Secondary reaction: despair · ignorance: view of determinism or non-action</td></tr>
+      <tr><td>“my…”, refuses to let go of a thing or person</td><td>Clinging: possessiveness</td></tr>
+      <tr><td>“I am my position”, “I am a failure”</td><td>Clinging: identification · ignorance: view of self</td></tr>
+      <tr><td>checking, rituals, overworking, strict “rules”</td><td>Clinging to rules and observances</td></tr>
+      <tr><td>“must”, “should”, black-and-white beliefs</td><td>Clinging to views</td></tr>
+      <tr><td>“once I get X I'll be happy”</td><td>Ignorance: view of happiness · craving for existence or sensual pleasure</td></tr>
+      <tr><td>drinks, scrolls or binges “to switch off”</td><td>Craving for non-existence (and sensual pleasure)</td></tr>
+      <tr><td>“I hate who I am”, “if only I weren't stuck in this life”</td><td>Aversion for existence</td></tr>
+      <tr><td>can't bear change, terror of losing, ageing, dying</td><td>Aversion for non-existence</td></tr>
+      <tr><td>angry, irritable, blames others</td><td>Aversion (often born of frustrated craving)</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="mra">
+  <h2>The class sample: Mr. A</h2>
+  <p>Mr. A is a newly promoted 29-year-old manager whose critical performance review sets off chest tightness, rumination, compulsive checking and overworking, poor sleep and withdrawal, all resting on the belief “I am my position”. The handout's sample answer already follows the layout above. To push it further, add these lecture-note labels:</p>
+  <ul>
+    <li><b>Event:</b> name it as a <b>systemic</b> event: union with what is displeasing (the critical feedback) and the fear of not getting what he wants (security, status).</li>
+    <li><b>Feeling:</b> chest tightness and a racing heart are <b>physical pain</b>; the hurt of the feedback is <b>mental pain</b>; replaying conversations is <b>sorrow</b>; “They will replace me soon” and emotional exhaustion edge toward <b>despair</b>. Cite the second arrow (SN 36.6).</li>
+    <li><b>Clinging:</b> “I am my position” is <b>identification</b>, almost word for word the Lesson 3 example “I am my job”. Overworking and repeated checking match Lesson 3's presentations of <b>clinging to rules and observances</b> (checking rituals, busyness as identity). Extreme reactivity to criticism is <b>clinging to a doctrine of self</b>.</li>
+    <li><b>Craving:</b> wanting status and a secure title is most precisely <b><span class="pali">bhava-taṇhā</span></b>, “I want to be this”. Lesson 4 lists promotion and chronic busyness as its examples.</li>
+    <li><b>Aversion:</b> fear of losing the role is <b>aversion for non-existence</b> (“I don't want this to end”); irritability at home shows aversion leaking into relationships.</li>
+    <li><b>Ignorance (Four Noble Truths):</b> not seeing that his own checking keeps the anxiety going is <b>not seeing the cause of suffering</b>.</li>
+  </ul>
+</section>
+
+<section id="cases">
+  <h2>Practice cases</h2>
+  <p>Each case uses the same question stem. Read the vignette, write (or talk through) your answer under the six headings, then open the model answer and compare labels and evidence.</p>
+  <div class="tools"><button type="button" id="openAll">Open all model answers</button><button type="button" id="closeAll">Close all</button></div>
+
+  <!-- CASE 1 -->
+  <article class="case" id="case1">
+    <h3>Case 1 · Madam B, the retired principal</h3>
+    <p class="meta">Tests: existential events · despair · possessiveness · view of determinism · aversion for non-existence</p>
+    <div class="vignette">
+      <p>Madam B, 67, retired last year after 38 years as a secondary-school principal. Eight months ago her husband of 40 years died suddenly of a stroke. Since then she has been diagnosed with osteoarthritis in both knees, and she has started forgetting appointments, which frightens her because her own mother had dementia.</p>
+      <p>She wakes at 4 a.m. with a heavy, aching feeling in her chest and cries whenever she sees her husband's chair. She repeatedly tells her daughter, “Why did this happen to me? We had so many plans for our retirement.” She has stopped going to the temple and to her choir, saying, “What's the point? I am useless now. Nobody needs a retired old woman.”</p>
+      <p>She keeps her husband's room exactly as he left it and becomes angry when her children suggest giving away his clothes. She often says, “Things will never get better. I'm just waiting for my turn.” Yet she panics whenever she reads about illness, and spends hours online searching for supplements that “stop memory loss”.</p>
+    </div>
+    <details>
+      <summary>Model answer</summary>
+      <div class="ans">
+        <h4>Framework of analysis</h4>
+        <p>Based on Buddhist teachings, suffering can be analysed as (1) the event, what happens; (2) the feeling, the felt reaction to what happens; and (3) clinging, the relationship with what happens. Its causes are (1) ignorance, a misconception of reality; (2) craving, the desire to obtain what is assumed to be pleasurable; and (3) aversion, resistance to what is assumed to be unpleasurable.</p>
+        <h4>Summary of the case</h4>
+        <p>Madam B, a 67-year-old retired principal, is grieving her husband's sudden death while facing arthritis and early memory lapses. She is tearful, withdrawn and hopeless, holds tightly to her husband's belongings, and sees herself as “useless now”, yet is terrified of further illness.</p>
+        <h4>Analysing suffering</h4>
+        <p><b>1. Event.</b> Her case is dominated by <b>existential events</b>, the unavoidable conditions of having a body. <b>Death</b>: her husband's sudden stroke. <b>Ageing</b>: retirement and declining faculties, the “weakness of faculties” of MN 141. <b>Illness</b>: osteoarthritis and memory lapses. These bring <b>systemic events</b> with them: <b>separation from what is pleasing</b> (her husband, her role as principal, her community) and <b>not obtaining what one wants</b> (“we had so many plans”). MN 141 notes that the wish not to be subject to ageing, sickness and death “is not to be obtained by wishing”.</p>
+        <p><b>2. Feeling.</b> Her <b>primary reactions</b> are <b>physical pain</b> (knee pain, the heavy ache in her chest) and <b>mental pain or grief</b> (crying at her husband's chair). On top of these she adds <b>secondary reactions</b>, the second arrow of SN 36.6. <b>Sorrow</b>: “Why did this happen to me?” <b>Lamentation</b>: repeating her complaint to her daughter. <b>Despair</b>, the most serious: “Things will never get better”, giving up the temple and choir, and settling into a fixed identity of helplessness.</p>
+        <p><b>3. Clinging.</b> <b>Possessiveness</b> (“this is mine”): she keeps the room unchanged and reacts with anger to giving away his clothes, holding onto the marriage through objects. <b>Identification</b> (“this I am”): her worth was fused with being a principal and a wife, so without these roles she concludes “I am useless now”. This matches Lesson 3's “If this role ends, I don't exist”. <b>Ontological identification</b>: her terror of memory loss shows a belief that her mind is her permanent core self, so that losing memory would mean losing herself. Her fixed story “nobody needs a retired old woman” is also <b>clinging to views</b>.</p>
+        <h4>Analysing causes of suffering</h4>
+        <p><b>1. Ignorance.</b> On the three characteristics, she held a <b>view of permanence</b>, treating her marriage, health and position as if they would last, so the changes feel like an outrage rather than the nature of conditioned things (AN 3.136). She holds a <b>view of happiness</b>: happiness could only be found in the retirement plans and the old life, and now in supplements that will secure her mind. She holds a <b>view of self</b>: “I am useless” reduces a changing person to one fixed label. On the Four Noble Truths, “Things will never get better” is the <b>view of determinism</b> (not seeing that suffering can cease) and “What's the point?” is the <b>view of non-action</b> (not seeing that there is a path to practise).</p>
+        <p><b>2. Craving.</b> Supported by ignorance, she has <b>craving for existence</b> (<span class="pali">bhava-taṇhā</span>): to go on being the wife, the principal and the person with a sharp mind. Her hours of searching for supplements are the “exhausting chase … seeking delight here and there” described in Lesson 4. Her line “I'm just waiting for my turn” may also hint at <b>craving for non-existence</b> (<span class="pali">vibhava-taṇhā</span>), a wish for the pain to switch off. A counsellor would gently check her safety here.</p>
+        <p><b>3. Aversion.</b> Her strongest aversion is <b>aversion for non-existence</b>, “I don't want this to end”: refusing to change the room, panicking about illness, fearing dementia. She also has <b>aversion for existence</b>, rejecting the self she now is (“a retired old woman”), and <b>aversion for sensual displeasure</b> toward her pain and the empty house. Her anger at her children shows Lesson 4's point that aversion is the child of frustrated craving: when the wish to keep her husband is blocked, it turns into irritation.</p>
+        <h4>Conclusion</h4>
+        <p>Madam B's suffering can be seen in the existential events of death, ageing and illness, in a layered reaction that has hardened into despair, and in her possessive clinging to her husband's belongings and her identification with past roles. It is caused by ignorance of impermanence, suffering and non-self, together with craving to keep being who she was and aversion to loss and to her present self.</p>
+        <div class="ext"><b>If the paper also asks “where do we go?” (Lessons 5, 10, 11):</b> the prognosis is non-craving and non-aversion, accepting change without collapse. The treatment covers mental action (grief-focused mindfulness, reflection on impermanence as in SN 3.22, where King Pasenadi grieves his grandmother), physical and verbal action (rejoining the choir, talking with her daughter about her husband) and environment (sorting his things together over time). The counsellor offers this as a hypothesis to test with her (Butler, 1998), not as a verdict.</div>
+      </div>
+    </details>
+  </article>
+
+  <!-- CASE 2 -->
+  <article class="case" id="case2">
+    <h3>Case 2 · Ms. C, the student with a following</h3>
+    <p class="meta">Tests: systemic events · shame as secondary reaction · rules and observances · view of happiness · all three cravings</p>
+    <div class="vignette">
+      <p>Ms. C, a 20-year-old university student, posts “study-aesthetic” content every day and has built a following of 30,000. When a post gets fewer likes than usual she feels a sinking sensation in her stomach, checks the app every few minutes and deletes posts that “underperform”.</p>
+      <p>After a classmate remarked that she “looks different on camera”, she began skipping meals, weighing herself several times a day and comparing her body with influencers late into the night. She tells friends, “Once I hit 50,000 followers and reach my goal weight, I'll finally be confident.” When she misses a target she calls herself “a fraud” and “disgusting”, binge-eats, and then feels intense shame.</p>
+      <p>Her grades are falling because she cannot concentrate, and she now scrolls until 3 a.m. “just to switch my brain off”. She says, “I hate who I am right now. I wish I could be someone else.”</p>
+    </div>
+    <details>
+      <summary>Model answer</summary>
+      <div class="ans">
+        <h4>Framework of analysis</h4>
+        <p>Suffering is analysed as the event, the feeling (the felt reaction to it) and clinging (the relationship with it). Its causes are ignorance (misconception of reality), craving (desire for what is assumed to be pleasant) and aversion (resistance to what is assumed to be unpleasant).</p>
+        <h4>Summary of the case</h4>
+        <p>Ms. C, a 20-year-old student, has tied her confidence to likes, followers and body weight. A classmate's remark and falling engagement set off compulsive checking, restrictive eating, a binge–shame cycle, late-night scrolling, falling grades and open self-hatred.</p>
+        <h4>Analysing suffering</h4>
+        <p><b>1. Event.</b> The events are mainly <b>systemic</b>, arising from the mismatch between desire and reality. <b>Union with what is displeasing</b>: the classmate's comment and posts that “underperform”. <b>Not obtaining what one wants</b>: missing her follower and weight targets. Underneath lies the existential fact that the body (<span class="pali">rūpa</span>) changes and cannot be controlled, and online approval, which depends on other people, is even less stable.</p>
+        <p><b>2. Feeling.</b> Her <b>primary reactions</b> are <b>physical pain</b> (the sinking stomach) and <b>mental pain</b> when likes drop. Her <b>secondary reactions</b> are far larger. There is <b>sorrow</b> in the late-night comparing, and harsh labels (“a fraud”, “disgusting”) that Lesson 3 describes as shame layered onto pain. Her <b>despair</b> shows in “I hate who I am” and in her collapsing concentration and grades. The binge–shame loop shows how the second arrow (SN 36.6) prolongs a small first hurt.</p>
+        <p><b>3. Clinging.</b> <b>Identification</b> (“this I am”): her worth is fused with numbers, her followers and her weight. <b>Possessiveness</b> (“this is mine”): her image and following feel like possessions to guard, so weak posts are deleted. Of the four kinds of clinging (MN 9), checking the app, deleting posts and weighing herself several times a day are <b>clinging to rules and observances</b>: rituals done to calm anxiety rather than for any real purpose. Her perfectionism and the fixed labels “fraud” and “disgusting” are <b>clinging to views</b> and to a <b>doctrine of self</b>, the Lesson 3 “labelling” distortion where one event becomes the definition of the whole self.</p>
+        <h4>Analysing causes of suffering</h4>
+        <p><b>1. Ignorance.</b> Her belief “Once I hit 50,000 followers … I'll finally be confident” is almost exactly Lesson 4's example of the <b>view of happiness</b> (“Once I get enough likes on this post, I'll finally feel validated”): she invests unstable approval with the power to make her whole. She holds a <b>view of permanence</b>, as if confidence, once reached, would stay. She holds a <b>view of self</b>: “I am disgusting” treats a passing feeling as a fixed identity. She also shows <b>ignorance of wholesome and unwholesome</b>: she seems to treat harsh self-criticism as useful motivation rather than as aversion that harms her.</p>
+        <p><b>2. Craving.</b> All three cravings appear. <b>Craving for sensual pleasures</b> (<span class="pali">kāma-taṇhā</span>): the “hit” of likes and the relief of binge-eating. <b>Craving for existence</b> (<span class="pali">bhava-taṇhā</span>): to become the confident influencer at her goal weight. This is Lesson 4's “launch into fantasy”, a “renewed existence” in which life is on hold until she arrives. Constantly checking the app is the “exhausting chase … here and there”. <b>Craving for non-existence</b> (<span class="pali">vibhava-taṇhā</span>): scrolling until 3 a.m. “to switch my brain off” seeks relief by numbing the self that suffers.</p>
+        <p><b>3. Aversion.</b> <b>Aversion for sensual displeasure</b>: she pushes away the sight of her body, the feeling of fullness and the sting of low engagement (by deleting, restricting and avoiding). <b>Aversion for existence</b>: “I hate who I am … I wish I could be someone else” rejects her present self. Each missed target turns craving into self-directed aversion, and the shame then fuels more craving for relief. This is Lesson 4's point that craving and aversion reinforce each other and keep ignorance in place.</p>
+        <h4>Conclusion</h4>
+        <p>Ms. C's suffering appears in systemic events of criticism and unmet targets, in a small primary pain magnified into shame and self-hatred, and in her identification with followers and weight, maintained by checking rituals. It is caused by ignorance (above all the view of happiness and view of self), craving for pleasure, for a new self and for numbness, and aversion to her body and present self.</p>
+        <div class="ext"><b>If asked about treatment:</b> self-compassion work (Compassion-Focused Therapy, Lesson 11) to soften the harsh inner critic; mindfulness of urges, noticing the pull to check without acting on it; environment: app limits and no phone after midnight. Because of the restrictive eating, a Buddhist counsellor works within their competence and would refer her to an eating-disorder or medical professional alongside counselling.</div>
+      </div>
+    </details>
+  </article>
+
+  <!-- CASE 3 -->
+  <article class="case" id="case3">
+    <h3>Case 3 · Mr. D, after the divorce</h3>
+    <p class="meta">Tests: separation from what is pleasing · lamentation · possessiveness · justified-anger ignorance · aversion as the dominant root</p>
+    <div class="vignette">
+      <p>Mr. D, a 45-year-old engineer, was divorced six months ago after his wife left him for a colleague. The court gave her the family flat and primary care of their two children; he sees them every second weekend. Whenever her name comes up he feels a burning in his chest and his jaw clenches.</p>
+      <p>He replays the court hearing every night, tells colleagues and relatives at length how “she destroyed my family”, and has posted angry messages about her online. He insists, “She must pay for what she did. A wife must be loyal. That is the rule,” and refuses mediation. On weekends without his children he drinks heavily “to stop thinking”.</p>
+      <p>He says, “They are MY children and that was MY home,” and, “I was a good husband. This should not happen to someone like me.” His teenage son has started avoiding visits, which makes him feel even more betrayed. “I'm stuck in this miserable life, and nothing I do matters any more.”</p>
+    </div>
+    <details>
+      <summary>Model answer</summary>
+      <div class="ans">
+        <h4>Framework of analysis</h4>
+        <p>Suffering is analysed as the event, the feeling (the felt reaction) and clinging (the relationship with what happens). Its causes are ignorance (misconception of reality), craving (desire for what seems pleasant) and aversion (resistance to what seems unpleasant).</p>
+        <h4>Summary of the case</h4>
+        <p>Mr. D, a 45-year-old engineer, is consumed by anger and grief after a divorce that cost him his home and daily life with his children. Nightly rumination, public complaints, refusal of mediation and weekend drinking are pushing his son away and leaving him hopeless.</p>
+        <h4>Analysing suffering</h4>
+        <p><b>1. Event.</b> All three <b>systemic events</b> are present. <b>Separation from what is pleasing</b>: his wife, his home and daily contact with his children (DN 22 lists being deprived of “mother or father … or blood-relations”). <b>Union with what is displeasing</b>: the court process, his ex-wife and her new partner. <b>Not obtaining what one wants</b>: the fairness and loyalty he expected. More deeply, the event exposes the impermanence of every relationship and arrangement.</p>
+        <p><b>2. Feeling.</b> <b>Primary reactions</b>: <b>physical pain</b> (burning chest, clenched jaw) and the <b>mental pain</b> of loss. <b>Secondary reactions</b> dominate. There is <b>sorrow</b> in replaying the hearing every night and feeling betrayed. His case is a clear example of <b>lamentation</b>, which Lesson 3 describes as the outward “externalisation and dramatisation of sorrow”: telling everyone at length and posting online. There is <b>despair</b> in “I'm stuck in this miserable life, and nothing I do matters any more.”</p>
+        <p><b>3. Clinging.</b> <b>Possessiveness</b> (“this is mine”) is explicit: “MY children … MY home.” <b>Identification</b> (“this I am”): he is fused with the identity of the “good husband” and now of the victim (“she destroyed my family”), a rigid self-story. Of the four kinds (MN 9), “A wife must be loyal. That is the rule” is <b>clinging to rules and observances</b> held as an absolute moral code, with intense judgment when it is broken. “She must pay” and “This should not happen to someone like me” are <b>clinging to views</b>, matching Ellis's irrational belief that “other people must treat me fairly”. Feeling that the divorce is a personal outrage against someone like him is <b>clinging to a doctrine of self</b>.</p>
+        <h4>Analysing causes of suffering</h4>
+        <p><b>1. Ignorance.</b> <b>View of permanence</b>: he took marriage and family as fixed rather than conditioned and changing. <b>View of self</b>: “someone like me” assumes a solid self that should be protected from loss. <b>Ignorance of wholesome and unwholesome</b>: he does not see his anger as unwholesome. Lesson 4 gives the exact pattern, “My anger is completely justified … it's the right response”, a poison mistaken for medicine. <b>Ignorance of the Four Noble Truths</b>: he does not see that his own drinking, posting and refusal of mediation are causes of his ongoing suffering (and of his son's withdrawal), and “nothing I do matters” is the <b>view of non-action</b>.</p>
+        <p><b>2. Craving.</b> <b>Craving for existence</b> (<span class="pali">bhava-taṇhā</span>): to be the respected husband and father of an intact family again, and to be proven right. <b>Craving for sensual pleasure</b>: the relief of alcohol. Drinking heavily “to stop thinking” is also <b>craving for non-existence</b> (<span class="pali">vibhava-taṇhā</span>), wanting to switch off the self that hurts. Lesson 4 lists “binge behaviour aimed at blackout” as a presentation.</p>
+        <p><b>3. Aversion.</b> In Mr. D, aversion (<span class="pali">dosa</span>, the root of hatred in AN 3.69) is the dominant cause. <b>Aversion for sensual displeasure</b>: pushing away the painful memories and the sight of her name. <b>Aversion for existence</b>: “I'm stuck in this miserable life” rejects his present circumstances. His hostility is the direct child of <b>frustrated craving</b>: the blocked wish to keep his family turns into anger, blame and the wish for revenge. As Lesson 4 warns, this aversion keeps him in the loop of suffering, and his son's avoidance shows it is now costing him the very relationships he wants.</p>
+        <h4>Conclusion</h4>
+        <p>Mr. D's suffering appears in the systemic events of separation, union with what is displeasing and unmet expectations, in a reaction that has spilled outward as lamentation and inward as despair, and in possessive clinging to “my” family and rigid rules about how others must behave. It is caused by ignorance (especially seeing anger as justified), craving for his old identity and for numbness, and aversion born of frustrated craving.</p>
+        <div class="ext"><b>If asked about treatment:</b> MBCT-style mindfulness to step out of nightly rumination; loving-kindness (<span class="pali">mettā</span>) practice, begun toward himself and his children before any wish for his ex-wife; the fifth precept as a supportive commitment to cut down drinking; verbal action: reconsidering mediation for the children's sake. The counsellor offers this collaboratively: “Shall we see whether loosening the anger also eases the pain?”</div>
+      </div>
+    </details>
+  </article>
+</section>
+
+<footer>
+  <p><b>Sources.</b> Lecture notes by Ven. Mahiyanganaye Suneetha Thero, DBUSF 33056 Introduction to Buddhist Psychology and Counselling, Buddhist &amp; Pali College of Singapore:</p>
+  <ul>
+    <li>Lesson 3 · Diagnosis of Suffering (events, reactions, clinging; Suffering Sheet)</li>
+    <li>Lesson 4 · Aetiology of Suffering (ignorance, craving, aversion)</li>
+    <li>Lesson 10 · Conceptualisation (Four Noble Truths as a framework; Butler, 1998)</li>
+    <li>Lesson 11 · Interventions (MBSR, MBCT, CFT, precepts, mettā)</li>
+    <li>Class handout · Case Study (Mr. A) and its sample answer</li>
+  </ul>
+  <p>Cases 1–3 are invented practice vignettes. These are personal study notes: check anything important against your lecturer's materials.</p>
+</footer>
+</div>
+
+<script>
+(function(){
+  var all=document.querySelectorAll('#cases details');
+  document.getElementById('openAll').addEventListener('click',function(){all.forEach(function(d){d.open=true;});});
+  document.getElementById('closeAll').addEventListener('click',function(){all.forEach(function(d){d.open=false;});});
+})();
+</script>
+</body>
+</html>
